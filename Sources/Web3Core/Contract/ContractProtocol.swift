@@ -332,7 +332,7 @@ extension DefaultContractProtocol {
     }
 
     public func decodeInputData(_ data: Data) -> [String: Any]? {
-        guard data.count % 32 == 4 else { return nil }
+        guard data.count % 32 == 4 || data.count % 32 == 8 else { return nil }
         let methodSignature = data[data.startIndex ..< data.startIndex + 4].toHexString().addHexPrefix().lowercased()
 
         guard let function = methods[methodSignature]?.first else { return nil }
