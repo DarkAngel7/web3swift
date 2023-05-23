@@ -455,7 +455,7 @@ extension ABIDecoder {
             sig = nil
             data = Data()
             break
-        case 4:
+        case 4, 8:
             sig = rawData[0 ..< 4]
             data = Data(rawData[4 ..< rawData.count])
         default:
